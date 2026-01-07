@@ -1,1 +1,8 @@
-flask==3.0.3
+functions-framework==3.*
+requests
+google-cloud-storage
+pandas
+numpy
+gcsfs
+pyarrow
+google-cloud-bigquery

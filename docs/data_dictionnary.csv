@@ -1,0 +1,25 @@
+Table;Nom du champ;Type;Description;Exemple
+DIM_TEMPS;date_debut;DATETIME;Clé Primaire. Date et heure précise du relevé.;2023-11-04 08:00:00
+DIM_TEMPS;date_jour;DATE;Date du relevé (sans l'heure).;2023-11-04
+DIM_TEMPS;heure;INTEGER;Heure du relevé (0-23).;8
+DIM_TEMPS;jour_semaine;STRING;Nom du jour de la semaine.;Lundi
+DIM_TEMPS;mois;INTEGER;Mois de l'année (1-12).;11
+DIM_TEMPS;annee;INTEGER;Année.;2023
+DIM_TEMPS;periode_journee;STRING;Indicateur 'Jour' (6h-18h) ou 'Nuit'.;Jour
+DIM_SITE;code_site;STRING;Clé Primaire. Identifiant unique de la station.;FR04012
+DIM_SITE;nom_site;STRING;Nom de la station ou de la ville.;Paris Centre
+DIM_SITE;type_implant;STRING;Type de zone (Urbain, Rural, Trafic...).;Urbain
+DIM_SITE;latitude;FLOAT;Coordonnée GPS Latitude (si disponible).;48.8566
+DIM_SITE;longitude;FLOAT;Coordonnée GPS Longitude (si disponible).;2.3522
+DIM_POLLUANT;code_polluant;STRING;Clé Primaire. Code chimique du polluant.;NO2
+DIM_POLLUANT;nom_polluant;STRING;Nom du polluant.;Dioxyde d'azote
+DIM_POLLUANT;unite_mesure;STRING;Unité de la mesure.;µg/m3
+DIM_QUALITE;code_qualite;STRING;Clé Primaire. Code normalisé du niveau de risque.;MAUVAIS
+DIM_QUALITE;signification;STRING;Libellé humain du niveau de qualité.;Mauvais
+FACT_QUALITE_AIR;date_debut;DATETIME;Clé Étrangère vers DIM_TEMPS.;2023-11-04 08:00:00
+FACT_QUALITE_AIR;code_site;STRING;Clé Étrangère vers DIM_SITE.;FR04012
+FACT_QUALITE_AIR;code_polluant;STRING;Clé Étrangère vers DIM_POLLUANT.;NO2
+FACT_QUALITE_AIR;code_qualite;STRING;Clé Étrangère vers DIM_QUALITE.;MAUVAIS
+FACT_QUALITE_AIR;valeur;FLOAT;Concentration mesurée (Métrique principale).;42.5
+FACT_QUALITE_AIR;valeur_brute;FLOAT;Moyenne journalière du site (KPI calculé).;40.1
+FACT_QUALITE_AIR;validite;BOOLEAN;Indique si la mesure est considérée comme valide.;TRUE
