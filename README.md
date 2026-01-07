@@ -37,14 +37,6 @@ Le détail des colonnes est disponible dans le Dictionnaire de Données (docs/DA
 * Python 3.x installé.
 * Google Cloud SDK installé et configuré.
 
-## Déploiement
-
-1.  Cloner le dépôt.
-2.  Installer les dépendances locales :
-    pip install -r requirements.txt
-3.  Déployer les Cloud Functions (exemple pour la transformation) :
-    gcloud functions deploy etl-transform-geodair --runtime python310 --trigger-http --source ./src/transform
-
 ## Auteurs
 
 Projet académique réalisé par [Mehdi BEN CHEIKH, Priscilia GBOSSAME, Paul Thurin KENFACK] et [Younes BELBOUAB].
